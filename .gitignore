@@ -1,0 +1,16 @@
+# Environment Configuration
+.env
+
+# Logs and error outputs
+*.log
+error.log
+
+# IDE / Tool files
+.vscode/
+.idea/
+.qodo/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+Desktop.ini

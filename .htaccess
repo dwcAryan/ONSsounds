@@ -1,0 +1,34 @@
+# ONS SOUND — Apache Web Server Configuration & Security Rules
+
+# 1. Prevent access to sensitive files
+<FilesMatch "^(\.env|\.git|\.env\.example|error\.log)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# 2. Disable directory indexing
+Options -Indexes
+
+# 3. Follow symbolic links
+Options +FollowSymLinks
+
+# 4. Enable URL Rewriting
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Ensure Authorization header is passed to PHP
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Do not rewrite if file or directory exists
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+</IfModule>
+
+# 5. Security Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
