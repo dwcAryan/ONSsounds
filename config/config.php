@@ -106,10 +106,10 @@ define('DB_CHARSET', $envVars['DB_CHARSET'] ?? 'utf8mb4');
 // SMTP Credentials
 define('SMTP_HOST', $envVars['SMTP_HOST'] ?? 'smtp.gmail.com');
 define('SMTP_PORT', (int)($envVars['SMTP_PORT'] ?? 587));
-define('SMTP_USER', $envVars['SMTP_USER'] ?? 'theartspace44@gmail.com');
-define('SMTP_PASS', $envVars['SMTP_PASS'] ?? 'dgqbgjjlmxiilrfu');
+define('SMTP_USER', $envVars['SMTP_USER'] ?? '');
+define('SMTP_PASS', $envVars['SMTP_PASS'] ?? '');
 define('SMTP_ENCRYPTION', $envVars['SMTP_ENCRYPTION'] ?? 'tls');
-define('SMTP_FROM_EMAIL', $envVars['SMTP_FROM_EMAIL'] ?? 'theartspace44@gmail.com');
+define('SMTP_FROM_EMAIL', $envVars['SMTP_FROM_EMAIL'] ?? '');
 define('SMTP_FROM_NAME', $envVars['SMTP_FROM_NAME'] ?? 'ONS SOUND');
 
 // Auto-detect Base URL or use configured APP_URL
